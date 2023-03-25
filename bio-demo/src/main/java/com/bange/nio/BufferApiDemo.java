@@ -6,8 +6,11 @@ import java.nio.ByteBuffer;
 public class BufferApiDemo {
     public static void main(String[] args) {
         ByteBuffer allocate = ByteBuffer.allocate(10);
+        // 下一个元素的位置
         System.out.println("==>position():"+allocate.position());
+        // BUffer可以读的最大位置
         System.out.println("limit():"+allocate.limit());
+        // buffer的容量
         System.out.println("capacity():"+allocate.capacity());
         System.out.println("-----------------");
         //put向缓冲区添加数据
