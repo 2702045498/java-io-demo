@@ -1,0 +1,27 @@
+syntax="proto3"; // 版本
+option optimize_for=SPEED; // 快速解析
+option java_outer_classname="MyDataInfo"; //外部类名 文件名
+option java_package="com.bange.netty.protobufcode"; // 指定生成到哪个包下
+
+message MyMessage{
+  enum DataType{
+    studentType=0; // 编号从0开始
+    workerType=1;
+  }
+  DataType data_type=1; // 用datatype标识传的是哪个
+  // 表示枚举类型每次只能出现其中的一个
+  oneof dataBody{
+    Student student=2;
+    Worker worker=3;
+  }
+}
+
+message Student{ // 发送的对象
+  int32 id=1; //1表示给属性序号不是值为1
+  string name=2;
+}
+
+message Worker{
+  string name=1;
+  int32 age=2;
+}
